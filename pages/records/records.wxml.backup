@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">交易记录</view>
+
+    <view class="filter-section">
+      <view class="filter-tabs">
+        <view class="tab {{currentFilter === 'all' ? 'active' : ''}}" bindtap="filterRecords" data-type="all">全部</view>
+        <view class="tab {{currentFilter === 'buy' ? 'active' : ''}}" bindtap="filterRecords" data-type="buy">买入</view>
+        <view class="tab {{currentFilter === 'sell' ? 'active' : ''}}" bindtap="filterRecords" data-type="sell">卖出</view>
+        <view class="tab {{currentFilter === 'update' ? 'active' : ''}}" bindtap="filterRecords" data-type="update">更新</view>
+      </view>
+    </view>
+
+    <view class="records-list" wx:if="{{filteredRecords.length > 0}}">
+      <view class="record-item" wx:for="{{filteredRecords}}" wx:key="id">
+        <view class="record-header">
+          <view class="record-info">
+            <text class="record-name">{{item.name}}</text>
+            <text class="record-code">{{item.code}}</text>
+          </view>
+          <text class="record-action {{item.action}}">{{item.action === 'buy' ? '买入' : item.action === 'sell' ? '卖出' : '更新'}}</text>
+        </view>
+        <view class="record-details">
+          <view class="detail-item">
+            <text class="label">日期</text>
+            <text class="value">{{item.date}}</text>
+          </view>
+          <view class="detail-item" wx:if="{{item.quantity}}">
+            <text class="label">数量</text>
+            <text class="value">{{item.quantity}} 股/份</text>
+          </view>
+          <view class="detail-item">
+            <text class="label">单价</text>
+            <text class="value">¥{{item.price}}</text>
+          </view>
+          <view class="detail-item" wx:if="{{item.quantity}}">
+            <text class="label">金额</text>
+            <text class="value">¥{{item.amount}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="label">品种</text>
+            <text class="value">{{item.categoryPath || item.category}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:else>
+      <text>暂无{{currentFilter === 'all' ? '' : (currentFilter === 'buy' ? '买入' : currentFilter === 'sell' ? '卖出' : '更新')}}记录</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">设置</view>
+
+    <view class="setting-item">
+      <view class="setting-info">
+        <text class="setting-name">数据管理</text>
+        <text class="setting-desc">备份和恢复投资数据</text>
+      </view>
+      <view class="setting-actions">
+        <button class="btn-secondary small" bindtap="backupData">备份</button>
+        <button class="btn-secondary small" bindtap="restoreData">恢复</button>
+      </view>
+    </view>
+
+    <view class="setting-item">
+      <view class="setting-info">
+        <text class="setting-name">清除数据</text>
+        <text class="setting-desc">删除所有投资记录和标的数据</text>
+      </view>
+      <button class="btn-secondary small danger" bindtap="clearData">清除</button>
+    </view>
+
+    <view class="setting-item">
+      <view class="setting-info">
+        <text class="setting-name">关于</text>
+        <text class="setting-desc">投资组合跟踪小程序</text>
+      </view>
+      <view class="setting-value">版本 1.0.0</view>
+    </view>
+  </view>
+</view>

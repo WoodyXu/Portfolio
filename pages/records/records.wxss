@@ -1,0 +1,131 @@
+.container {
+  padding: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.filter-section {
+  margin-bottom: 30rpx;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 20rpx;
+  overflow-x: auto;
+}
+
+.tab {
+  flex: 1;
+  min-width: 120rpx;
+  text-align: center;
+  padding: 16rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.tab.active {
+  background-color: #007aff;
+  color: white;
+}
+
+.records-list {
+  margin-top: 20rpx;
+}
+
+.record-item {
+  background-color: white;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.record-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.record-code {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.record-action {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+  min-width: 80rpx;
+  text-align: center;
+}
+
+.record-action.buy {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.record-action.sell {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.record-action.update {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.record-details {
+  border-top: 1rpx solid #eee;
+  padding-top: 20rpx;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+  font-size: 28rpx;
+  flex-wrap: wrap;
+}
+
+.detail-item .value {
+  word-break: break-all;
+  max-width: 50%;
+}
+
+.label {
+  color: #666;
+}
+
+.value {
+  color: #333;
+  font-weight: 500;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}

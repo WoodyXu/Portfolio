@@ -1,0 +1,340 @@
+.container {
+  padding: 20rpx;
+}
+
+.last-update {
+  background-color: #f8f9fa;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.update-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.full-view-button-container {
+  padding: 20rpx;
+  text-align: center;
+}
+
+.btn-secondary {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  font-size: 28rpx;
+  padding: 15rpx 30rpx;
+  border-radius: 8rpx;
+  border: none;
+  box-shadow: none;
+}
+
+.btn-secondary:active {
+  background-color: #bbdefb;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.total-amount {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #007aff;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.asset-list {
+  margin-top: 20rpx;
+}
+
+.category-item {
+  background-color: white;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.primary-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background-color: white;
+  border-radius: 12rpx;
+}
+
+.primary-category:active {
+  background-color: #f5f5f5;
+}
+
+.primary-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.category-percentage {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.primary-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.category-amount {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #007aff;
+  margin-bottom: 8rpx;
+}
+
+.expand-icon {
+  font-size: 24rpx;
+  color: #999;
+  transition: transform 0.3s;
+}
+
+.expand-icon.expanded {
+  transform: rotate(90deg);
+}
+
+.subcategory-list {
+  background-color: #f8f9fa;
+  border-radius: 0 0 12rpx 12rpx;
+  padding: 0 30rpx 30rpx;
+  margin-top: -20rpx;
+}
+
+.subcategory-item {
+  background-color: transparent;
+  margin-bottom: 10rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #e0e0e0;
+}
+
+.subcategory-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.secondary-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background-color: white;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.secondary-category:active {
+  background-color: #f5f5f5;
+}
+
+.secondary-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.subcategory-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.subcategory-percentage {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.secondary-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.subcategory-amount {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #007aff;
+  margin-bottom: 8rpx;
+}
+
+.item-list {
+  background-color: #ffffff;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  margin-top: 10rpx;
+}
+
+.item-card {
+  background-color: #f8f9fa;
+  border-radius: 6rpx;
+  padding: 15rpx;
+  margin-bottom: 10rpx;
+}
+
+.item-card:last-child {
+  margin-bottom: 0;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+}
+
+.item-percentage {
+  font-size: 24rpx;
+  color: #007aff;
+  font-weight: 500;
+}
+
+.item-code {
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 15rpx;
+}
+
+.item-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.item-details {
+  margin-top: 10rpx;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.value {
+  font-size: 24rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.recent-records {
+  margin-top: 20rpx;
+}
+
+.record-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.record-name {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.record-type {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+}
+
+.record-type.buy {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.record-type.sell {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.record-type.update {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.record-amount {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #007aff;
+  margin-bottom: 8rpx;
+}
+
+.record-category {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+.record-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}

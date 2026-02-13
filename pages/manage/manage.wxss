@@ -1,0 +1,113 @@
+.container {
+  padding: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+}
+
+.input {
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+}
+
+.picker {
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+  min-height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+
+.category-picker {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.primary-picker,
+.secondary-picker {
+  flex: 1;
+  display: flex;
+}
+
+.primary-picker .picker,
+.secondary-picker .picker {
+  flex: 1;
+  min-height: 70rpx;
+  padding: 16rpx;
+  font-size: 28rpx;
+}
+
+.separator {
+  font-size: 28rpx;
+  color: #666;
+  font-weight: bold;
+  min-width: 32rpx;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007aff;
+  color: white;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 40rpx;
+}
+
+.btn-primary:active {
+  background-color: #0051d5;
+}
+
+.input-with-picker {
+  display: flex;
+  align-items: center;
+}
+
+.input-with-picker .input {
+  flex: 1;
+  margin-right: 10rpx;
+}
+
+.picker-btn {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 6rpx;
+  min-width: 60rpx;
+  text-align: center;
+}
+
+.picker-btn:active {
+  background-color: #bbdefb;
+}
+
+.quantity-hint {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 10rpx;
+  text-align: right;
+}

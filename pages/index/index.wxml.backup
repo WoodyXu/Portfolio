@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="card">
+    <view class="header">
+      <text class="title">投资组合总览</text>
+      <text class="total-amount">¥{{totalAmount}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">资产分布</view>
+    <view class="asset-list">
+      <view class="asset-item" wx:for="{{assetDistribution}}" wx:key="id">
+        <view class="asset-info">
+          <text class="asset-name">{{item.name}}</text>
+          <text class="asset-percentage">{{item.percentage}}%</text>
+        </view>
+        <view class="asset-amount">¥{{item.amount}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">操作</view>
+    <view class="actions">
+      <button class="btn-primary" bindtap="goToBuy">买入</button>
+      <button class="btn-primary" bindtap="goToSell">卖出</button>
+      <button class="btn-primary" bindtap="goToUpdate">更新</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">最近交易</view>
+    <view class="recent-records" wx:if="{{recentRecords.length > 0}}">
+      <view class="record-item" wx:for="{{recentRecords}}" wx:key="id">
+        <view class="record-info">
+          <text class="record-name">{{item.name}}</text>
+          <text class="record-type {{item.action}}">{{item.actionText}}</text>
+        </view>
+        <view class="record-amount" wx:if="{{item.amount}}">¥{{item.amount}}</view>
+        <view class="record-date">{{item.date}}</view>
+      </view>
+    </view>
+    <view class="empty-state" wx:else>
+      <text>暂无交易记录</text>
+    </view>
+  </view>
+</view>

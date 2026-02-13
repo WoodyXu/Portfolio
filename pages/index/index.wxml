@@ -1,0 +1,104 @@
+<view class="container">
+  <view class="last-update">
+    <text class="update-text">最新更新时间：{{lastUpdateTime}}</text>
+  </view>
+
+  <view class="card">
+    <view class="header">
+      <text class="title">投资组合总览</text>
+      <text class="total-amount">¥{{totalAmount}}</text>
+    </view>
+    <view class="full-view-button-container">
+      <button class="btn-secondary" bindtap="toggleFullView">展开详情</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">资产分布</view>
+    <view class="asset-list">
+      <view class="category-item" wx:for="{{assetDistribution}}" wx:key="id">
+        <view class="primary-category" bindtap="toggleCategoryExpansion" data-category-id="{{item.id}}">
+          <view class="primary-info">
+            <text class="category-name">{{item.name}}</text>
+            <text class="category-percentage">{{item.percentage}}%</text>
+          </view>
+          <view class="primary-details">
+            <text class="category-amount">¥{{item.amount}}</text>
+            <text class="expand-icon">{{item.isExpanded ? '▼' : '▶'}}</text>
+          </view>
+        </view>
+
+        <view class="subcategory-list" wx:if="{{item.isExpanded && item.subcategories.length > 0}}">
+          <view class="subcategory-item" wx:for="{{item.subcategories}}" wx:key="id" wx:for-item="subCategory">
+            <view class="secondary-category" bindtap="toggleSubcategoryExpansion" data-category-id="{{item.id}}" data-subcategory-id="{{subCategory.id}}">
+              <view class="secondary-info">
+                <text class="subcategory-name">{{subCategory.name}}</text>
+                <text class="subcategory-percentage">{{subCategory.percentage}}%</text>
+              </view>
+              <view class="secondary-details">
+                <text class="subcategory-amount">¥{{subCategory.amount}}</text>
+                <text class="expand-icon">{{subCategory.isExpanded ? '▼' : '▶'}}</text>
+              </view>
+            </view>
+
+            <view class="item-list" wx:if="{{subCategory.isExpanded && subCategory.items.length > 0}}">
+              <view class="item-card" wx:for="{{subCategory.items}}" wx:key="code">
+                <view class="item-header">
+                  <view class="item-info">
+                    <text class="item-code">{{item.code}}</text>
+                    <text class="item-name">{{item.name}}</text>
+                  </view>
+                  <text class="item-percentage">{{item.percentage}}%</text>
+                </view>
+                <view class="item-details">
+                  <view class="detail-item">
+                    <text class="label">数量：</text>
+                    <text class="value">{{item.quantity}} 股</text>
+                  </view>
+                  <view class="detail-item">
+                    <text class="label">单价：</text>
+                    <text class="value">¥{{item.price}}</text>
+                  </view>
+                  <view class="detail-item">
+                    <text class="label">金额：</text>
+                    <text class="value">¥{{item.total}}</text>
+                  </view>
+                  <view class="detail-item">
+                    <text class="label">数据详情：</text>
+                    <text class="value">{{JSON.stringify(item)}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">操作</view>
+    <view class="actions">
+      <button class="btn-primary" bindtap="goToBuy">买入</button>
+      <button class="btn-primary" bindtap="goToSell">卖出</button>
+      <button class="btn-primary" bindtap="goToUpdate">更新</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">最近交易</view>
+    <view class="recent-records" wx:if="{{recentRecords.length > 0}}">
+      <view class="record-item" wx:for="{{recentRecords}}" wx:key="id">
+        <view class="record-info">
+          <text class="record-name">{{item.name}}</text>
+          <text class="record-type {{item.action}}">{{item.actionText}}</text>
+        </view>
+        <view class="record-amount" wx:if="{{item.amount}}">¥{{item.amount}}</view>
+        <view class="record-date">{{item.date}}</view>
+      </view>
+    </view>
+    <view class="empty-state" wx:else>
+      <text>暂无交易记录</text>
+    </view>
+  </view>
+</view>

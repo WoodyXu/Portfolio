@@ -1,0 +1,108 @@
+Page({
+  data: {
+    totalAmount: 0,
+    assetDistribution: [],
+    recentRecords: []
+  },
+
+  onLoad() {
+    this.loadData()
+  },
+
+  onShow() {
+    this.loadData()
+  },
+
+  loadData() {
+    // 从存储加载投资组合数据
+    const portfolio = wx.getStorageSync('portfolio') || []
+    const records = wx.getStorageSync('records') || []
+
+    // 计算总金额
+    const totalAmount = portfolio.reduce((sum, item) => {
+      return sum + item.quantity * item.price
+    }, 0)
+
+    // 计算资产分布（简化版）
+    const assetDistribution = this.calculateAssetDistribution(portfolio)
+
+    // 获取最近交易记录
+    const recentRecords = records.slice(0, 5).reverse().map(record => ({
+      ...record,
+      actionText: record.action === 'buy' ? '买入' : record.action === 'sell' ? '卖出' : '更新'
+    }))
+
+    this.setData({
+      totalAmount: totalAmount.toFixed(2),
+      assetDistribution,
+      recentRecords
+    })
+  },
+
+  calculateAssetDistribution(portfolio) {
+    const categories = [
+      {
+        id: 'equity',
+        name: '权益类资产',
+        subcategories: ['equity_a', 'equity_h', 'equity_us', 'equity_other']
+      },
+      {
+        id: 'fixed_income',
+        name: '固收类资产',
+        subcategories: ['fixed_income_pure', 'fixed_income_convertible', 'fixed_income_secondary', 'fixed_income_other']
+      },
+      {
+        id: 'alternative',
+        name: '另类资产',
+        subcategories: ['alternative_gold', 'alternative_silver', 'alternative_reits', 'alternative_other']
+      },
+      {
+        id: 'cash',
+        name: '现金类资产',
+        subcategories: ['cash_deposit', 'cash_money', 'cash_repo', 'cash_other']
+      }
+    ]
+
+    // 计算总金额
+    const totalAmount = portfolio.reduce((sum, item) => {
+      return sum + item.quantity * item.price
+    }, 0)
+
+    return categories.map(category => {
+      // 只计算属于当前类别的资产总和
+      const amount = portfolio.reduce((sum, item) => {
+        // 根据 categoryId 或 primaryCategory 判断资产类别
+        if (item.primaryCategory === category.name ||
+            (item.categoryId && category.subcategories.includes(item.categoryId))) {
+          return sum + item.quantity * item.price
+        }
+        return sum
+      }, 0)
+
+      return {
+        id: category.id,
+        name: category.name,
+        amount: amount.toFixed(2),
+        percentage: totalAmount > 0 ? ((amount / totalAmount) * 100).toFixed(1) : '0'
+      }
+    }).filter(item => parseFloat(item.amount) > 0)
+  },
+
+  goToBuy() {
+    wx.navigateTo({
+      url: '/pages/manage/manage?action=buy'
+    })
+  },
+
+  goToSell() {
+    wx.navigateTo({
+      url: '/pages/manage/manage?action=sell'
+    })
+  },
+
+  goToUpdate() {
+    wx.navigateTo({
+      url: '/pages/manage/manage?action=update'
+    })
+  }
+})

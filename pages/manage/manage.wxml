@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">{{action === 'buy' ? '买入' : action === 'sell' ? '卖出' : '更新'}}投资标的</view>
+
+    <form bindsubmit="submitForm">
+      <view class="form-item">
+        <text class="label">日期</text>
+        <picker mode="date" value="{{formData.date}}" bindchange="onDateChange">
+          <view class="picker">{{formData.date}}</view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="label">标的代码</text>
+        <view class="input-with-picker">
+          <input class="input" value="{{formData.code}}" bindinput="onCodeChange" placeholder="请输入标的代码" />
+          <picker value="{{selectedItemIndex}}" range="{{availableItems}}" range-key="code" bindchange="onCodeSelect">
+            <view class="picker-btn">选择</view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <text class="label">标的名称</text>
+        <view class="input-with-picker">
+          <input class="input" value="{{formData.name}}" bindinput="onNameChange" placeholder="请输入标的名称" />
+          <picker value="{{selectedItemIndex}}" range="{{availableItems}}" range-key="name" bindchange="onNameSelect">
+            <view class="picker-btn">选择</view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="form-item" wx:if="{{action === 'buy' || action === 'sell'}}">
+        <text class="label">{{action === 'buy' ? '购买数量' : '卖出数量'}} (股)</text>
+        <input class="input" type="number" value="{{formData.quantity}}" bindinput="onQuantityChange" placeholder="请输入数量" />
+        <text class="quantity-hint" wx:if="{{action === 'sell' && maxSellQuantity !== undefined}}">最多可卖出 {{maxSellQuantity}} 股</text>
+      </view>
+
+      <view class="form-item">
+        <text class="label">{{action === 'buy' ? '购买单价' : action === 'sell' ? '卖出单价' : '最新单价'}} (元)</text>
+        <input class="input" type="number" value="{{formData.price}}" bindinput="onPriceChange" placeholder="请输入单价" />
+      </view>
+
+      <view class="form-item">
+        <text class="label">所属投资品种</text>
+        <view class="category-picker">
+          <view class="primary-picker">
+            <picker value="{{formData.primaryCategoryIndex}}" range="{{primaryCategoryNames}}" bindchange="onPrimaryCategoryChange">
+              <view class="picker">{{primaryCategoryNames[formData.primaryCategoryIndex]}}</view>
+            </picker>
+          </view>
+          <view class="separator">></view>
+          <view class="secondary-picker">
+            <picker value="{{formData.secondaryCategoryIndex}}" range="{{secondaryCategoryNames}}" bindchange="onSecondaryCategoryChange">
+              <view class="picker">{{secondaryCategoryNames[formData.secondaryCategoryIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <button class="btn-primary" form-type="submit">确认{{action === 'buy' ? '买入' : action === 'sell' ? '卖出' : '更新'}}</button>
+    </form>
+  </view>
+</view>

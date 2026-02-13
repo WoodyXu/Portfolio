@@ -1,0 +1,8 @@
+CLAUDE.md
+Portfolio需求文档.md
+*.DS_Store
+node_modules/
+dist/
+build/
+temp/
+*.log
